@@ -1,0 +1,19 @@
+*{
+    box-sizing: border-box;
+}
+body{
+    margin: 0;
+    font-family: 'Inter';
+}
+
+:root{
+    --black:#000000;
+    --white:#fff;
+    --azul:#4F7CAC;
+    --gris:rgb(112, 110, 110);
+    --celeste: #91E5F6;
+    --naranja: #FFC700;
+    --azul-oscuro: #201E50;
+    --fucsia: #E75A7C;
+    --radius: 8px;
+}
