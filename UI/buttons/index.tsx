@@ -12,8 +12,23 @@ align-items:center;
 margin:5px;
 `
 export const SecondaryButton = styled(PrimaryButton)`
-background-color: var(--naranja)
+background-color: var(--naranja);
+width:330px;
+@media (min-width: 900px) {
+width:150px;
+}
 `
 export const ButtonIngresar = styled(PrimaryButton)`
-background-color: var(--fucsia)
+background-color: var(--fucsia);
+@media (max-width: 900px) {
+        display:none;
+}
+`
+export const ButtonComprar = styled(PrimaryButton)`
+background-color: var(--celeste);
+width: 330px;
+height:60px;
+@media (min-width: 900px) {
+       width: 420px;
+}
 `

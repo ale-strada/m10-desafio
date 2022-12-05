@@ -1,3 +1,4 @@
+import router from "next/router"
 import styled from "styled-components" 
 import { LargeText, Subtitle } from "UI/text"
 
@@ -37,8 +38,12 @@ height: 100%;
 border-radius:4px 4px 0 0;
 `
 
-export function Card({src = "",price,description}: any){
-return <CardConteiner>
+export function Card({src = "",price,description,id, type}: any){
+function handleCardClick(e:any){
+    e.preventDefault()
+    router.push("/item/"+id)
+}
+return <CardConteiner onClick={handleCardClick}>
         <ImgConteiner>
             <ProductImg src={src}/>
         </ImgConteiner>
@@ -48,3 +53,10 @@ return <CardConteiner>
     </ProductInfo>
 </CardConteiner>
 }
+
+export const GridConteiner = styled.div`
+    @media (min-width: 900px) {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+`

@@ -5,7 +5,7 @@ import { SearchForm } from 'components/searchForm'
 import { searchProduct } from 'lib/hooks'
 import { useRecoilState } from 'recoil'
 import {  Title } from 'UI/text'
-import router, { useRouter } from 'next/router'
+import router from 'next/router'
 
 
 export default function Home() {

@@ -28,17 +28,17 @@ justify-content: center;
 }
 `
 
-
 function AddCard(){
 const destacados = useDestacados()
 console.log(destacados);
 
 if(destacados){
-   return <CardConteiner>
+   return <CardConteiner >
     {destacados.map(
         (p: any)=>{
-            return <Card 
+            return <Card
             key = {p.objectID}
+            id = {p.objectID}
             price={p["Unit cost"]} 
             description={p.Name} 
             src={p.Images[0].url}/>
