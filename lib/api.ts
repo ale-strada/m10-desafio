@@ -4,7 +4,6 @@ export async function fetchAPI(api: RequestInfo, options: any) {
   const url = API_BASE_URL + api;
 
   const token = getSavedToken();
-  console.log(token);
 
   const newOptions: any = options || {};
   newOptions.headers = newOptions.headers || {};

@@ -4,33 +4,26 @@ import { SearchFormLarge } from 'components/searchForm'
 import { searchProduct, useProduct } from 'lib/hooks'
 import { useRecoilState } from 'recoil'
 import { useRouter } from 'next/router'
-import { useEffect } from 'react'
 import { ItemCard } from 'UI/Item'
 
 
 
 export default function Item() {
-    const [search, setSearch] = useRecoilState(searchProduct)
-    const router = useRouter()
-    const itemId: any = router.query.itemId
-    
-    
-    
+const [search, setSearch] = useRecoilState(searchProduct)
+const router = useRouter()
+const itemId: any = router.query.itemId
+
 
 function AddItem(){
 const product= useProduct(itemId)
 if(product){
-   const item = product.res
-return <ItemCard name={item.Name} price= {item["Unit cost"]} description={item.Description} src={item.Images[0].url}/> 
+    const item = product.res
+return <ItemCard name={item.Name} price= {item["Unit cost"]} description={item.Description} src={item.Images[0].url} id={item.objectID}/> 
 }else{
     return <div></div>
 }
-
-
-
 }
-    
-      
+
 const pageStyle: any={
     display:"flex",
     flexDirection:"column",

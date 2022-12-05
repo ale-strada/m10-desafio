@@ -1,3 +1,4 @@
+import Router from "next/router"
 import styled from "styled-components" 
 import { ButtonComprar } from "UI/buttons"
 import { Body, Subtitle, Title } from "UI/text"
@@ -34,13 +35,21 @@ margin:0 30px;
 }
 `
 
-export function ItemCard({src = "",price,description,name}: any){
+export function ItemCard({src = "",price,description,name, id}: any){
+    
+    
+    function handleClick(e: any){
+        e.preventDefault()
+        Router.push("/checkout/"+id)
+        
+    }
+
 return <ItemConteiner>
 <ItemImg src={src}/>
 <ItemDataConteiner>
     <Subtitle>{name}</Subtitle>
     <Title>${price}</Title>
-    <ButtonComprar>
+    <ButtonComprar  onClick={handleClick}>
     <Subtitle>Comprar</Subtitle>
     </ButtonComprar>
     <Body>{description}</Body>

@@ -41,3 +41,10 @@ export function useSearch(
   );
   return data;
 }
+
+export async function getOrder(id: string, address: string) {
+  return fetchAPI("/order?productId=" + id, {
+    method: "POST",
+    body: { address },
+  });
+}

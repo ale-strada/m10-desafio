@@ -14,7 +14,12 @@ text-align:center;
     color:var(--gris)
 }
 `
-
+export const FormResponsiveConteiner= styled.form`
+width:330px;
+@media (min-width: 900px) {
+width:420px;
+}
+`
 export function TextField({placeholder="",label, width ="160px", name}:any){
 return <div style={{width: width, margin:"5px"}}>
     <Tiny>{label}</Tiny>
