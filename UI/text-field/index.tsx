@@ -20,9 +20,9 @@ width:330px;
 width:420px;
 }
 `
-export function TextField({placeholder="",label, width ="160px", name}:any){
-return <div style={{width: width, margin:"5px"}}>
+export function TextField({placeholder="",label, width ="160px", name, type, onChange, value}:any){
+return <div style={{width: width, margin:"10px"}}>
     <Tiny>{label}</Tiny>
-    <Input placeholder= {placeholder} name={name}/>
+    <Input onChange={onChange} placeholder= {placeholder} name={name} type={type} value={value}/>
     </div>
 }

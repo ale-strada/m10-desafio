@@ -56,7 +56,9 @@ export function Header(){
                 <MenuLink>
                     <Link style={{textDecoration:"none", color: "inherit"}} href="/login" passHref={true}>Ingresar</Link>
                 </MenuLink>
-                <MenuLink>Mi Perfil</MenuLink>
+                <MenuLink>
+                    <Link style={{textDecoration:"none", color: "inherit"}} href="/profile" passHref={true}>Mi Perfil</Link> 
+                </MenuLink>
                 <MenuLink>
                     <Link style={{textDecoration:"none", color: "inherit"}} href="/search" passHref={true}>Buscar</Link> 
                 </MenuLink>

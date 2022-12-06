@@ -35,7 +35,9 @@ export function Footer(){
                 <BodyWhite>
                     <Link style={{textDecoration:"none", color: "inherit"}} href="/login" passHref={true}>Ingresar</Link>
                 </BodyWhite>
-                <BodyWhite>Mi Perfil</BodyWhite>
+                <BodyWhite>
+                    <Link style={{textDecoration:"none", color: "inherit"}} href="/profile" passHref={true}> Mi Perfil</Link>
+                </BodyWhite>
                 <BodyWhite>
                     <Link style={{textDecoration:"none", color: "inherit"}} href="/search" passHref={true}>Buscar</Link> 
                 </BodyWhite> 

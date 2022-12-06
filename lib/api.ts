@@ -78,7 +78,12 @@ export async function getToken(email: string, code: string) {
   saveToken(data);
   return true;
 }
-
+export async function meUpdate(data: any) {
+  return fetchAPI("/me", {
+    method: "PATCH",
+    body: data,
+  });
+}
 export function saveToken(token: string) {
   localStorage.setItem("auth-token", token);
 }

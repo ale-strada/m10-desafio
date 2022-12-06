@@ -5,6 +5,7 @@ import { Body, BodyBold, Title } from "UI/text";
 import { TextField } from "UI/text-field";
 import { SecondaryButton } from "UI/buttons";
 import styled from "styled-components";
+import { useMe } from "lib/hooks";
 
 const FormConteiner= styled.div`
 display: flex;
@@ -24,8 +25,10 @@ export function Login(){
         e.preventDefault()
         const code = e.target.code.value;
         try {
-            getToken(email,code)
-            router.push("/")
+            getToken(email,code).then(()=>{
+               router.push("/") 
+            })
+            
         } catch (error) {
             console.log(error);
             

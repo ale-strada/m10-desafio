@@ -15,6 +15,7 @@ cursor: pointer;
 export const SecondaryButton = styled(PrimaryButton)`
 background-color: var(--naranja);
 width:330px;
+margin: 0 auto;
 @media (min-width: 900px) {
 width:150px;
 }
