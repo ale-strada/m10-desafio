@@ -3,6 +3,12 @@ import useSWR from "swr";
 import useSWRInmutable from "swr";
 import { fetchAPI, fetchBFF } from "./api";
 
+const BASE_URL = process.env.BASE_URL;
+const eso = process.env.ALGO;
+const algo = process.env.NODE_ENV;
+
+console.log(BASE_URL, algo, eso, "Baseee");
+
 export function useMe() {
   const { data, error } = useSWR("/me", fetchAPI);
 
@@ -45,6 +51,9 @@ export function useSearch(
 export async function getOrder(id: string, address: string) {
   return fetchAPI("/order?productId=" + id, {
     method: "POST",
-    body: { address },
+    body: {
+      address,
+      successUrl: BASE_URL + "/thanks ",
+    },
   });
 }
