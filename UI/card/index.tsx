@@ -21,6 +21,7 @@ height: 321px;
 border: 4px solid #000000;
 border-radius: var(--radius);
 margin: 15px;
+cursor: pointer;
 `
 
 const ImgConteiner = styled.div`

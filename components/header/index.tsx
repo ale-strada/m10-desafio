@@ -4,9 +4,11 @@ import { Turn as Hamburger } from 'hamburger-react'
 import { MenuConteiner, MenuLink, MenuLinkConteiner } from "UI/menu-burguer"
 import { useState } from "react"
 import { ButtonIngresar } from "UI/buttons"
-import { BodyBoldWhite } from "UI/text"
+import { Body, BodyBoldWhite, LargeText } from "UI/text"
 import router from "next/router"
 import Link from "next/link"
+import { useMe } from "lib/hooks"
+import { UserDataConteiner } from "UI/Layout"
 
 
 
@@ -23,13 +25,29 @@ const BurguerConteiner = styled.div`
         display:none;
 }
 `
+function SessionManager(){
+const user = useMe()
+
+    if(user){
+        console.log(user, "USERR");
+        return <UserDataConteiner>
+                    <LargeText style={{color:"var(--white)"}}>{user.email}</LargeText>
+                    <Body onClick={()=>{router.push("/logout")}} style={{color:"var(--fucsia)", cursor:"pointer"}}>Cerrar sesión</Body>
+                </UserDataConteiner>
+        
+    }else{
+        return <ButtonIngresar onClick={()=>{router.push("/login")}}>
+                    <BodyBoldWhite>Ingresar</BodyBoldWhite>
+                </ButtonIngresar>
+    }
+}
 export function Header(){
     const [open, setOpen] = useState("none")
     return<HeaderConteiner>
-        <LogoWhite/>
-        <ButtonIngresar onClick={()=>{router.push("/login")}}>
-            <BodyBoldWhite>Ingresar</BodyBoldWhite>
-        </ButtonIngresar>
+        <div onClick={()=>{router.push("/")}}>
+        <LogoWhite />
+        </div>
+        <SessionManager/>
         <BurguerConteiner>
             <Hamburger color="var(--white)" onToggle={toggled=>{toggled? setOpen(""):  setOpen("none")}}/>
         </BurguerConteiner>

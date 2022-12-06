@@ -45,7 +45,7 @@ function AddCard(){
                 console.log("minimo");
                 offMenos = true
             }
-const paginationStyleMas: any = {display: offMas? "none":"", position: "relative", left: "280px"}
+const paginationStyleMas: any = {display: offMas? "none":"", position: "relative", left: "250px"}
 const paginationStyleMenos: any = {display: offMenos? "none":""}
     if(pagination !== 0){
         return <div>

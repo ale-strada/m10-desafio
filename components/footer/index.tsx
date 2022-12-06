@@ -1,10 +1,8 @@
+import Link from "next/link"
+import Router from "next/router"
 import styled from "styled-components" 
 import { LogoInsta, LogoTwiter} from "UI/logo"
-
 import { BodyWhite, LargeText } from "UI/text"
-
-
-
 
 export const FooterConteiner = styled.div`
 background-color: var(--gris);
@@ -27,15 +25,21 @@ align-items: center;
 justify-content: space-around;
 width: 160px;
 `
-
+function handleLogOut(){
+    Router.push("/logout")
+}
 export function Footer(){
     
     return<FooterConteiner>
             <div>
-                <BodyWhite>Ingresar</BodyWhite>
+                <BodyWhite>
+                    <Link style={{textDecoration:"none", color: "inherit"}} href="/login" passHref={true}>Ingresar</Link>
+                </BodyWhite>
                 <BodyWhite>Mi Perfil</BodyWhite>
-                <BodyWhite>Buscar</BodyWhite> 
-                <BodyWhite>Logout</BodyWhite>
+                <BodyWhite>
+                    <Link style={{textDecoration:"none", color: "inherit"}} href="/search" passHref={true}>Buscar</Link> 
+                </BodyWhite> 
+                <BodyWhite style={{cursor:"pointer"}} onClick={handleLogOut}>Logout</BodyWhite>
             </div>
             <div>
                 <LargeText style={{color:"white"}}>Redes</LargeText>

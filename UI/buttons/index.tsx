@@ -10,6 +10,7 @@ display:flex;
 justify-content:center;
 align-items:center;
 margin:5px;
+cursor: pointer;
 `
 export const SecondaryButton = styled(PrimaryButton)`
 background-color: var(--naranja);
@@ -45,5 +46,5 @@ export const PaginationConteiner = styled.div`
 margin: 20px auto;
 display: flex;
 justify-content: space-between;
-width: 100%
+width: 300px
 `

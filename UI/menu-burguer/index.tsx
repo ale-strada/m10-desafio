@@ -5,7 +5,7 @@ export const MenuConteiner = styled.div`
     width: 375px;
     height: 624px;
     right: 0px;
-    top: 60px;
+    top: 80px;
     background-color: var(--gris);
     display: flex;
     flex-direction: column;
@@ -13,6 +13,9 @@ export const MenuConteiner = styled.div`
     align-items: center;
     transition: width 2s, height 4s;
     z-index: 20;
+    @media (min-width: 900px) {
+        display:none;
+}
 `
 export const MenuLinkConteiner = styled.div`
     width: 375px;

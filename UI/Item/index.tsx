@@ -21,7 +21,6 @@ margin:20px auto;
     height:380px;
     margin:30px 0;
 }
-
 `
 const ItemDataConteiner = styled.div`
 display:flex;
@@ -36,12 +35,17 @@ margin:0 30px;
 `
 
 export function ItemCard({src = "",price,description,name, id}: any){
-    
-    
+
     function handleClick(e: any){
         e.preventDefault()
-        Router.push("/checkout/"+id)
-        
+        const token = localStorage.getItem("auth-token")
+        if(token){
+            console.log(token);
+            Router.push("/checkout/"+id)
+        }else{
+            window.alert("para comprar debes estar registrado en la app")
+            Router.push("/login")
+        }        
     }
 
 return <ItemConteiner>
@@ -56,11 +60,3 @@ return <ItemConteiner>
 </ItemDataConteiner>
 </ItemConteiner>
 }
-
-
-`
-// export const GridConteiner = styled.div`
-//     @media (min-width: 900px) {
-//     display: grid;
-//     grid-template-columns: 1fr 1fr 1fr;
-// }
