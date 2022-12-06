@@ -1,5 +1,5 @@
 import Link from "next/link"
-import Router from "next/router"
+import router from "next/router"
 import styled from "styled-components" 
 import { LogoInsta, LogoTwiter} from "UI/logo"
 import { BodyWhite, LargeText } from "UI/text"
@@ -26,7 +26,7 @@ justify-content: space-around;
 width: 160px;
 `
 function handleLogOut(){
-    Router.push("/logout")
+    router.push("/logout")
 }
 export function Footer(){
     
