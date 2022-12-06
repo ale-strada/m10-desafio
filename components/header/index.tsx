@@ -5,6 +5,8 @@ import { MenuConteiner, MenuLink, MenuLinkConteiner } from "UI/menu-burguer"
 import { useState } from "react"
 import { ButtonIngresar } from "UI/buttons"
 import { BodyBoldWhite } from "UI/text"
+import router from "next/router"
+import Link from "next/link"
 
 
 
@@ -25,7 +27,7 @@ export function Header(){
     const [open, setOpen] = useState("none")
     return<HeaderConteiner>
         <LogoWhite/>
-        <ButtonIngresar>
+        <ButtonIngresar onClick={()=>{router.push("/login")}}>
             <BodyBoldWhite>Ingresar</BodyBoldWhite>
         </ButtonIngresar>
         <BurguerConteiner>
@@ -33,9 +35,13 @@ export function Header(){
         </BurguerConteiner>
         <MenuConteiner style={{display:open}}>
             <MenuLinkConteiner>
-                <MenuLink>Ingresar</MenuLink>
+                <MenuLink>
+                    <Link style={{textDecoration:"none", color: "inherit"}} href="/login" passHref={true}>Ingresar</Link>
+                </MenuLink>
                 <MenuLink>Mi Perfil</MenuLink>
-                <MenuLink>Buscar</MenuLink>  
+                <MenuLink>
+                    <Link style={{textDecoration:"none", color: "inherit"}} href="/search" passHref={true}>Buscar</Link> 
+                </MenuLink>
             </MenuLinkConteiner>
         </MenuConteiner>
     </HeaderConteiner>

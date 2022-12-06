@@ -32,3 +32,18 @@ height:60px;
        width: 420px;
 }
 `
+
+export const ButtonPagination = styled.button`
+border:none;
+background: none;
+color:var(--azul);
+margin:15px;
+cursor: pointer;
+`
+
+export const PaginationConteiner = styled.div`
+margin: 20px auto;
+display: flex;
+justify-content: space-between;
+width: 100%
+`

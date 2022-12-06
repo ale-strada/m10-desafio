@@ -6,17 +6,11 @@ import { searchProduct } from 'lib/hooks'
 import { useRecoilState } from 'recoil'
 import {  Title } from 'UI/text'
 import router from 'next/router'
+import { PageConteiner } from 'UI/Layout'
 
 
 export default function Home() {
   const [search, setSearch] = useRecoilState(searchProduct)
-  const pageStyle: any={
-    display:"flex",
-    flexDirection:"column",
-    alignItems: "center",
-  }
-
-  console.log(search);
   
   function handleSubmit(e:any){
     e.preventDefault() 
@@ -24,11 +18,11 @@ export default function Home() {
     router.push("/search")
 }
 
-  return <div style={pageStyle}>
+  return <PageConteiner>
     <Header/>
     <Title>El mejor e-commerce</Title>
     <SearchForm onSubmit={handleSubmit}/>
     <ProductosDestacados/>
     <Footer/>
-  </div>
+  </PageConteiner>
 }

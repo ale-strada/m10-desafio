@@ -5,6 +5,7 @@ import { searchProduct, useProduct } from 'lib/hooks'
 import { useRecoilState } from 'recoil'
 import { useRouter } from 'next/router'
 import { ItemCard } from 'UI/Item'
+import { PageConteiner } from 'UI/Layout'
 
 
 
@@ -24,25 +25,19 @@ return <ItemCard name={item.Name} price= {item["Unit cost"]} description={item.D
 }
 }
 
-const pageStyle: any={
-    display:"flex",
-    flexDirection:"column",
-    alignItems: "center",
-}
-
 function handleSubmit(e:any){
     e.preventDefault() 
     setSearch(e.target.search.value)
     router.push("/search")
 }
 
-return<div style={pageStyle}>
+return<PageConteiner>
 <Header/>
 <div style={{backgroundColor:"var(--gris)", width:"100%", display:"Flex", justifyContent:"center", padding:"15px"}}>
 <SearchFormLarge onSubmit={handleSubmit} />
 </div>
 <AddItem/>
 <Footer/>
-</div>
+</PageConteiner>
 }
 

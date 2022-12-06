@@ -1,99 +1,78 @@
 import { Footer } from "components/footer"
 import { Header } from "components/header"
+import { SearchResults } from "components/search-results"
 import { SearchFormLarge } from "components/searchForm"
 import { searchProduct, useSearch } from "lib/hooks"
-import next from "next"
-import router from "next/router"
 import { useState } from "react"
 import { useRecoilState } from "recoil"
-import { Card, GridConteiner } from "UI/card"
-import { Body, Title } from "UI/text"
+import { ButtonPagination, PaginationConteiner } from "UI/buttons"
+import { PageConteiner } from "UI/Layout"
+import { Title } from "UI/text"
 
 export default function Search() {
 const [search, setSearch] = useRecoilState(searchProduct)
 const [offset, setOffset] = useState(0)
+const products:any =  useSearch(search, offset)
 
-const pageStyle: any={
-    display:"flex",
-    flexDirection:"column",
-    alignItems: "center",
-}
 
 function handleSubmit(e:any){
     e.preventDefault() 
     setSearch(e.target.search.value) 
-    console.log();
 }
 
 function handleClickMas(){
     setOffset(offset+10)
 }
 function handleClickMenos(){
-    setOffset(offset-10)
+    setOffset(offset-10) 
 }
 
 
+
 function AddCard(){
-    const products:any =  useSearch(search, offset)
     if(products){    
         const prod = products.results
         const pagination = products.pagination.total
+        var offMas = false
+        var offMenos = false
+        
+        if ((offset + 10) > pagination || (offset + 10) === pagination){
+                console.log("tope");
+                offMas= true
+            }
 
-    
-        
-    if ((offset + 10) > pagination || (offset + 10) === pagination){
-        console.log("tope");
-    }
-    if(offset === 0){
-        console.log("minimo");
-        
-    }
+        if(offset === 0){
+                console.log("minimo");
+                offMenos = true
+            }
+const paginationStyleMas: any = {display: offMas? "none":"", position: "relative", left: "280px"}
+const paginationStyleMenos: any = {display: offMenos? "none":""}
     if(pagination !== 0){
         return <div>
-        <Body>resultados totales:{JSON.stringify(pagination)}</Body>
-        <GridConteiner>
-            {prod.map(
-            (p: any)=>{
-                return <Card
-                key = {p.objectID}
-                id = {p.objectID}
-                price={p["Unit cost"]} 
-                description={p.Name} 
-                src={p.Images[0].url}/>
-            })
-            } 
-        </GridConteiner>
-        
-        <div style={{
-            margin: "20px auto",
-            display: "flex",
-            justifyContent: "space-between",
-            width: "100%"
-        }}> 
-        {/* ver la forma de que estos botones no aparezcan cuando no se puede cambiar el offset */}
-           <a style={{color:"var(--azul)", margin:"15px",cursor: "pointer",  }} onClick={handleClickMenos}>Menos -</a> 
-           <a style={{color:"var(--azul)", margin:"15px",cursor: "pointer",  }} onClick={handleClickMas}> Mas +</a>  
-        </div>
-       
-    </div>  
+            <SearchResults prod={prod} pagination={pagination}/>
+            <PaginationConteiner> 
+                <ButtonPagination style = {paginationStyleMenos} onClick={handleClickMenos}>Menos -</ButtonPagination> 
+                <ButtonPagination style = {paginationStyleMas} onClick={handleClickMas}> Mas +</ButtonPagination>  
+            </PaginationConteiner>
+            </div>
     }else{
-        return <div>
+        return <div style={{margin:"60px"}}>
         <Title>No se encontraron coincidencias</Title>
     </div>
     }
     }else{
-        return <div>
+        return <div style={{margin:"60px"}}>
             <Title>No se encontraron coincidencias</Title>
         </div>
     }
     }
 
-return <div style={pageStyle}>
+return <PageConteiner>
     <Header/>
     <div style={{backgroundColor:"var(--gris)", width:"100%", display:"Flex", justifyContent:"center", padding:"15px"}}>
     <SearchFormLarge onSubmit={handleSubmit} />
     </div>
     <AddCard/>
     <Footer/>
-    </div>
+    </PageConteiner>
 }

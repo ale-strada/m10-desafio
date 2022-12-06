@@ -22,7 +22,7 @@ export const MenuLinkConteiner = styled.div`
     justify-content: space-evenly;
     align-items: center;
 `
-export const MenuLink = styled.a`
+export const MenuLink = styled.p`
 font-style: normal;
 font-weight: 700;
 font-size: 32px;
