@@ -47,7 +47,7 @@ export async function getOrder(id: string, address: string) {
     method: "POST",
     body: {
       address,
-      successUrl: "https://e-commerce-rho-jet.vercel.app/thanks ",
+      successUrl: "https://e-commerce-rho-jet.vercel.app/thanks",
     },
   });
 }

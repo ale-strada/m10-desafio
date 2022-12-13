@@ -16,8 +16,9 @@ const ItemImg = styled.img`
 width:320px;
 height:240px;
 margin:20px auto;
+object-fit: scale-down;
 @media (min-width: 900px) {
-    width:800px;
+    /* width:800px; */
     height:380px;
     margin:30px 0;
 }

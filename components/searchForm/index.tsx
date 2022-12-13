@@ -16,7 +16,8 @@ export const FormResponsive = styled.form`
 @media (min-width: 900px) {
 display:flex;
 position: absolute;
-top: 30px;
+top: 15px;
+align-items: center;
 }
 `
 

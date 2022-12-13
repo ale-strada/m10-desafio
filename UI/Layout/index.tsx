@@ -9,7 +9,7 @@ export const PageConteiner = styled.div`
 export const UserDataConteiner = styled.div`
     position: relative;
     bottom: 30px;
-    margin: 0 10px;
+    margin: 0 12px;
     @media (max-width: 900px) {
         display:none;
 }

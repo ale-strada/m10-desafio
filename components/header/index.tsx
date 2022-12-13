@@ -8,8 +8,7 @@ import { Body, BodyBoldWhite, LargeText } from "UI/text"
 import router from "next/router"
 import Link from "next/link"
 import { useMe } from "lib/hooks"
-import { UserDataConteiner } from "UI/Layout"
-
+import { UserDataConteiner } from "UI/layout"
 
 
 export const HeaderConteiner = styled.div`

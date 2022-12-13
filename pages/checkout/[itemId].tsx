@@ -3,7 +3,7 @@ import { Header } from 'components/header'
 import { ShowItem } from 'components/show-item'
 import { useProduct } from 'lib/hooks'
 import { useRouter } from 'next/router'
-import { PageConteiner } from 'UI/Layout'
+import { PageConteiner } from 'UI/layout'
 import { Title } from 'UI/text'
 
 

@@ -6,7 +6,7 @@ import { searchProduct, useSearch } from "lib/hooks"
 import { useState } from "react"
 import { useRecoilState } from "recoil"
 import { ButtonPagination, PaginationConteiner } from "UI/buttons"
-import { PageConteiner } from "UI/Layout"
+import { PageConteiner } from "UI/layout"
 import { Title } from "UI/text"
 
 export default function Search() {
