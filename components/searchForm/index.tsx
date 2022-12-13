@@ -5,7 +5,11 @@ import { TextField } from "UI/text-field"
 
 
 export function SearchForm({onSubmit}:any){
-    return <form onSubmit={onSubmit}>
+    return <form style={{
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+    }}onSubmit={onSubmit}>
     <TextField name="search" placeholder="Encontrá tu producto ideal" width = "255px"/>
     <PrimaryButton style={{width:"255px"}}>
         <BodyBoldWhite>Buscar</BodyBoldWhite>

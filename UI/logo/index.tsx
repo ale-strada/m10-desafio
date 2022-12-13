@@ -11,6 +11,10 @@ export function MyLogo({className}:any){
 export const LogoWhite = styled(MyLogo)`
 fill: white;
 background-color: inherit;
+cursor: pointer;
+:hover{
+    fill: var(--black)
+}
 `
 export function LogoTwiter(){
     return<Twitter/>
