@@ -6,7 +6,7 @@ import { searchProduct } from 'lib/hooks'
 import { useRecoilState } from 'recoil'
 import {  Title } from 'UI/text'
 import router from 'next/router'
-import { PageConteiner } from 'UI/layout'
+import { PageConteiner } from 'UI/Layout'
 
 
 export default function Home() {

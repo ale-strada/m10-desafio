@@ -2,7 +2,7 @@ import { Footer } from "components/footer";
 import { Header } from "components/header";
 import Router from "next/router";
 import { PrimaryButton } from "UI/buttons";
-import { PageConteiner } from "UI/layout";
+import { PageConteiner } from "UI/Layout";
 import { BodyBold, Subtitle, Title } from "UI/text";
 
 export default function Thanks() {

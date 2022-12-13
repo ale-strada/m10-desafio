@@ -4,8 +4,8 @@ import { SearchFormLarge } from 'components/searchForm'
 import { searchProduct, useProduct } from 'lib/hooks'
 import { useRecoilState } from 'recoil'
 import { useRouter } from 'next/router'
-import { ItemCard } from 'UI/item'
-import { PageConteiner } from 'UI/layout'
+import { ItemCard } from 'UI/Item'
+import { PageConteiner } from 'UI/Layout'
 
 
 
